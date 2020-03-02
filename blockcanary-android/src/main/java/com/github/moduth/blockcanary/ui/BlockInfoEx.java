@@ -41,7 +41,7 @@ final class BlockInfoEx extends BlockInfo {
                 } else if (line.startsWith(KEY_IMEI)) {
                     blockInfo.imei = line.split(KV)[1];
                 } else if (line.startsWith(KEY_CPU_CORE)) {
-                    blockInfo.cpuCoreNum = Integer.valueOf(line.split(KV)[1]);
+                    blockInfo.cpuCoreNum = Integer.parseInt(line.split(KV)[1]);
                 } else if (line.startsWith(KEY_UID)) {
                     blockInfo.uid = line.split(KV)[1];
                 } else if (line.startsWith(KEY_TIME_COST_START)) {
@@ -49,23 +49,25 @@ final class BlockInfoEx extends BlockInfo {
                 } else if (line.startsWith(KEY_TIME_COST_END)) {
                     blockInfo.timeEnd = line.split(KV)[1];
                 } else if (line.startsWith(KEY_TIME_COST)) {
-                    blockInfo.timeCost = Long.valueOf(line.split(KV)[1]);
+                    blockInfo.timeCost = Long.parseLong(line.split(KV)[1]);
                 } else if (line.startsWith(KEY_THREAD_TIME_COST)) {
-                    blockInfo.threadTimeCost = Long.valueOf(line.split(KV)[1]);
+                    blockInfo.threadTimeCost = Long.parseLong(line.split(KV)[1]);
                 } else if (line.startsWith(KEY_PROCESS)) {
                     blockInfo.processName = line.split(KV)[1];
                 } else if (line.startsWith(KEY_VERSION_NAME)) {
                     blockInfo.versionName = line.split(KV)[1];
                 } else if (line.startsWith(KEY_VERSION_CODE)) {
-                    blockInfo.versionCode = Integer.valueOf(line.split(KV)[1]);
+                    blockInfo.versionCode = Integer.parseInt(line.split(KV)[1]);
                 } else if (line.startsWith(KEY_NETWORK)) {
                     blockInfo.network = line.split(KV)[1];
                 } else if (line.startsWith(KEY_TOTAL_MEMORY)) {
                     blockInfo.totalMemory = line.split(KV)[1];
                 } else if (line.startsWith(KEY_FREE_MEMORY)) {
                     blockInfo.freeMemory = line.split(KV)[1];
+                } else if (line.startsWith(KEY_IS_BACKGROUND)) {
+                    blockInfo.isBackground = Boolean.parseBoolean(line.split(KV)[1]);
                 } else if (line.startsWith(KEY_CPU_BUSY)) {
-                    blockInfo.cpuBusy = Boolean.valueOf(line.split(KV)[1]);
+                    blockInfo.cpuBusy = Boolean.parseBoolean(line.split(KV)[1]);
                 } else if (line.startsWith(KEY_CPU_RATE)) {
                     String[] split = line.split(KV);
                     if (split.length > 1) {

@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
-apply from: 'gradle-mvn-push.gradle'
+//
+
 
 android {
     compileSdkVersion LIBRARY_COMPILE_SDK_VERSION
@@ -17,8 +18,54 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
+
+
+//生成源文件
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+//生成Javadoc文档
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+//文档打包成jar
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+//拷贝javadoc文件
+task copyDoc(type: Copy) {
+    from "${buildDir}/docs/"
+    into "docs"
+}
+
+//上传到JCenter所需要的源码文件
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+//apply plugin: 'com.novoda.bintray-release'
+//publish {
+//    userOrg = 'bzcoder'
+//    repoName = 'BlockCanaryCompat'
+//    groupId = 'com.github.bzcoder'
+//    artifactId = 'blockcanarycompat-analyzer'
+//    publishVersion = '0.0.1'
+//    desc = 'blockcanarycompat-analyzer'
+//    website = 'https://github.com/BzCoder/BlockCanaryCompat'
+//}
+

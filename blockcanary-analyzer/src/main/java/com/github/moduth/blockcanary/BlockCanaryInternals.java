@@ -18,6 +18,7 @@ package com.github.moduth.blockcanary;
 import android.os.Environment;
 import android.os.Looper;
 
+import com.github.moduth.blockcanary.internal.BackgroundUtil;
 import com.github.moduth.blockcanary.internal.BlockInfo;
 
 import java.io.File;
@@ -59,6 +60,7 @@ public final class BlockCanaryInternals {
                             .setCpuBusyFlag(cpuSampler.isCpuBusy(realTimeStart, realTimeEnd))
                             .setRecentCpuRate(cpuSampler.getCpuRateInfo())
                             .setThreadStackEntries(threadStackEntries)
+                            .setAppBackground(BackgroundUtil.isBackground(sContext.provideContext()))
                             .flushString();
                     LogWriter.save(blockInfo.toString());
 

@@ -62,6 +62,7 @@ public class BlockInfo {
     public static final String KEY_NETWORK = "network";
     public static final String KEY_TOTAL_MEMORY = "totalMemory";
     public static final String KEY_FREE_MEMORY = "freeMemory";
+    public static final String KEY_IS_BACKGROUND = "background";
 
     public static String sQualifier;
     public static String sModel;
@@ -94,6 +95,7 @@ public class BlockInfo {
     public boolean cpuBusy;
     public String cpuRateInfo;
     public ArrayList<String> threadStackEntries = new ArrayList<>();
+    public boolean isBackground;
 
     private StringBuilder basicSb = new StringBuilder();
     private StringBuilder cpuSb = new StringBuilder();
@@ -171,6 +173,11 @@ public class BlockInfo {
         return this;
     }
 
+    public BlockInfo setAppBackground(boolean background) {
+        isBackground = background;
+        return this;
+    }
+
     public BlockInfo flushString() {
         String separator = SEPARATOR;
         basicSb.append(KEY_QUA).append(KV).append(qualifier).append(separator);
@@ -185,6 +192,7 @@ public class BlockInfo {
         basicSb.append(KEY_PROCESS).append(KV).append(processName).append(separator);
         basicSb.append(KEY_FREE_MEMORY).append(KV).append(freeMemory).append(separator);
         basicSb.append(KEY_TOTAL_MEMORY).append(KV).append(totalMemory).append(separator);
+        basicSb.append(KEY_IS_BACKGROUND).append(KV).append(isBackground).append(separator);
 
         timeSb.append(KEY_TIME_COST).append(KV).append(timeCost).append(separator);
         timeSb.append(KEY_THREAD_TIME_COST).append(KV).append(threadTimeCost).append(separator);
@@ -193,6 +201,7 @@ public class BlockInfo {
 
         cpuSb.append(KEY_CPU_BUSY).append(KV).append(cpuBusy).append(separator);
         cpuSb.append(KEY_CPU_RATE).append(KV).append(cpuRateInfo).append(separator);
+
 
         if (threadStackEntries != null && !threadStackEntries.isEmpty()) {
             StringBuilder temp = new StringBuilder();
@@ -220,4 +229,6 @@ public class BlockInfo {
     public String toString() {
         return String.valueOf(basicSb) + timeSb + cpuSb + stackSb;
     }
+
+
 }

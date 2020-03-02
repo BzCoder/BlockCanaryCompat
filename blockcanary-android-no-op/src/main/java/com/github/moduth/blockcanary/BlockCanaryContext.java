@@ -113,4 +113,8 @@ public class BlockCanaryContext {
     public boolean stopWhenDebugging() {
         return true;
     }
+
+    public boolean reportRecentOneMessage() {
+        return false;
+    }
 }
