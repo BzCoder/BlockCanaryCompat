@@ -2,7 +2,6 @@ package com.github.moduth.blockcanary.internal;
 
 import android.app.ActivityManager;
 import android.content.Context;
-import android.util.Log;
 
 import java.util.List;
 
@@ -12,15 +11,19 @@ public class BackgroundUtil {
                 .getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningAppProcessInfo> appProcesses = activityManager
                 .getRunningAppProcesses();
-        for (ActivityManager.RunningAppProcessInfo appProcess : appProcesses) {
-            if (appProcess.processName.equals(context.getPackageName())) {
-                if (appProcess.importance != ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND) {
-                    return true;
-                } else {
-                    return false;
+        if (appProcesses != null && appProcesses.size() > 0) {
+            for (ActivityManager.RunningAppProcessInfo appProcess : appProcesses) {
+                if (appProcess.processName.equals(context.getPackageName())) {
+                    if (appProcess.importance != ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND) {
+                        return true;
+                    } else {
+                        return false;
+                    }
                 }
             }
+            return false;
+        } else {
+            return false;
         }
-        return false;
     }
 }
