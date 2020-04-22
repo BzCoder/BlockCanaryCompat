@@ -5,6 +5,11 @@ import android.content.Context;
 
 import java.util.List;
 
+/**
+ * 判断app是否在前台
+ * @author : BaoZhou
+ * @date : 2020/4/22 11:53 AM
+ */
 public class BackgroundUtil {
     public static boolean isBackground(Context context) {
         ActivityManager activityManager = (ActivityManager) context

@@ -19,7 +19,9 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.os.Build.VERSION;
+import android.provider.Settings;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.github.moduth.blockcanary.BlockCanaryInternals;
@@ -109,15 +111,22 @@ public class BlockInfo {
         sApiLevel = Build.VERSION.SDK_INT + " " + VERSION.RELEASE;
         sQualifier = BlockCanaryInternals.getContext().provideQualifier();
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) BlockCanaryInternals
-                    .getContext()
-                    .provideContext()
-                    .getSystemService(Context.TELEPHONY_SERVICE);
-            sImei = telephonyManager.getDeviceId();
+            sImei = getIMEI(BlockCanaryInternals.getContext().provideContext());
         } catch (Exception exception) {
             Log.e(TAG, NEW_INSTANCE_METHOD, exception);
             sImei = EMPTY_IMEI;
         }
+    }
+
+    public static String getIMEI(Context context) {
+        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(context.TELEPHONY_SERVICE);
+        String deviceId = telephonyManager.getDeviceId();
+        //android 10以上已经获取不了imei了 用 android id代替
+        if (TextUtils.isEmpty(deviceId)) {
+            deviceId = Settings.System.getString(
+                    context.getContentResolver(), Settings.Secure.ANDROID_ID);
+        }
+        return deviceId;
     }
 
     public BlockInfo() {
