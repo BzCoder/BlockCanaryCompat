@@ -64,7 +64,7 @@ artifacts {
 //    repoName = 'BlockCanaryCompat'
 //    groupId = 'com.github.bzcoder'
 //    artifactId = 'blockcanarycompat-analyzer'
-//    publishVersion = '0.0.1'
+//    publishVersion = '0.0.4'
 //    desc = 'blockcanarycompat-analyzer'
 //    website = 'https://github.com/BzCoder/BlockCanaryCompat'
 //}

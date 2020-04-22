@@ -21,7 +21,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    api project(':blockcanary-android')
+    implementation 'com.github.bzcoder:blockcanarycompat-android:0.0.4'
 //    api project(':blockcanary-android-no-op')
 //
     implementation('com.android.support:appcompat-v7:27.1.1')

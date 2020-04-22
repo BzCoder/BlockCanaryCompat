@@ -25,7 +25,7 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 //    api project(':blockcanary-analyzer')
-    api 'com.github.bzcoder:blockcanarycompat-analyzer:0.0.1'
+    api 'com.github.bzcoder:blockcanarycompat-analyzer:0.0.4'
 }
 
 //生成源文件
@@ -58,15 +58,15 @@ artifacts {
     archives sourcesJar
 }
 
-//apply plugin: 'com.novoda.bintray-release'
-//
-//publish {
-//    userOrg = 'bzcoder'
-//    repoName = 'BlockCanaryCompat'
-//    groupId = 'com.github.bzcoder'
-//    artifactId = 'blockcanarycompat-android'
-//    publishVersion = '0.0.1'
-//    desc = 'blockcanarycompat-android'
-//    website = 'https://github.com/BzCoder/BlockCanaryCompat'
-//}
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+    userOrg = 'bzcoder'
+    repoName = 'BlockCanaryCompat'
+    groupId = 'com.github.bzcoder'
+    artifactId = 'blockcanarycompat-android'
+    publishVersion = '0.0.4'
+    desc = 'blockcanarycompat-android'
+    website = 'https://github.com/BzCoder/BlockCanaryCompat'
+}
 
