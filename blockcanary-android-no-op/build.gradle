@@ -57,15 +57,14 @@ artifacts {
     archives sourcesJar
 }
 
-//apply plugin: 'com.novoda.bintray-release'
-//
-//publish {
-//    userOrg = 'bzcoder'
-//    repoName = 'BlockCanaryCompat'
-//    groupId = 'com.github.bzcoder'
-//    artifactId = 'blockcanarycompat-android-no-op'
-//    publishVersion = '0.0.4'
-//    desc = 'blockcanarycompat-android-no-op'
-//    website = 'https://github.com/BzCoder/BlockCanaryCompat'
-//}
-//
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+    userOrg = 'bzcoder'
+    repoName = 'BlockCanaryCompat'
+    groupId = 'com.github.bzcoder'
+    artifactId = 'blockcanarycompat-android-no-op'
+    publishVersion = '0.0.4'
+    desc = 'blockcanarycompat-android-no-op'
+    website = 'https://github.com/BzCoder/BlockCanaryCompat'
+}
