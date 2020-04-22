@@ -1,4 +1,6 @@
 # BlockCanaryCompat
+[ ![Download](https://api.bintray.com/packages/bzcoder/BlockCanaryCompat/blockcanarycompat-android/images/download.svg?version=0.0.4) ](https://bintray.com/bzcoder/BlockCanaryCompat/blockcanarycompat-android/0.0.4/link)
+
 修改自[BlockCanary](https://github.com/markzhai/AndroidPerformanceMonitor)，适配Android 8.0以上版本。
 
 引入：
