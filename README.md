@@ -7,7 +7,6 @@
 ```
     debugImplementation('com.github.bzcoder:blockcanarycompat-android:0.0.4')
     releaseImplementation('com.github.bzcoder:blockcanarycompat-android-no-op:0.0.4')
-    
 ```
 
 兼容：
@@ -18,4 +17,4 @@
 新增：
 - App是否在前台选项
 - GetSingleCpuRateInfoUtils工具类提取CPU信息单独选项
-- reportRecentOneMessage选项，作用为限制上报卡顿信息为一条（如果需要收集线上日志，可配合使用）
+- reportRecentOneMessage选项，作用为限制上报卡顿信息为一条（如果需要采集线上日志，可配合使用）
