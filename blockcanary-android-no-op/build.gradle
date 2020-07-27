@@ -59,12 +59,13 @@ artifacts {
 
 apply plugin: 'com.novoda.bintray-release'
 
+
 publish {
     userOrg = 'bzcoder'
     repoName = 'BlockCanaryCompat'
     groupId = 'com.github.bzcoder'
     artifactId = 'blockcanarycompat-android-no-op'
-    publishVersion = '0.0.4'
+    publishVersion = '0.0.5'
     desc = 'blockcanarycompat-android-no-op'
     website = 'https://github.com/BzCoder/BlockCanaryCompat'
 }

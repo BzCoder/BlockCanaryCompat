@@ -9,7 +9,7 @@ import com.github.moduth.blockcanary.internal.ProcessUtils;
 import java.util.LinkedList;
 import java.util.List;
 
-final class BlockCanaryUtils {
+public final class BlockCanaryUtils {
 
     private static final List<String> WHITE_LIST = new LinkedList<>();
     private static final List<String> CONCERN_LIST = new LinkedList<>();

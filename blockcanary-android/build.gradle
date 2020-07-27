@@ -24,8 +24,8 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-//    api project(':blockcanary-analyzer')
-    api 'com.github.bzcoder:blockcanarycompat-analyzer:0.0.4'
+    api project(':blockcanary-analyzer')
+//    api 'com.github.bzcoder:blockcanarycompat-analyzer:0.0.5'
 }
 
 //生成源文件
@@ -65,8 +65,8 @@ artifacts {
 //    repoName = 'BlockCanaryCompat'
 //    groupId = 'com.github.bzcoder'
 //    artifactId = 'blockcanarycompat-android'
-//    publishVersion = '0.0.4'
+//    publishVersion = '0.0.5'
 //    desc = 'blockcanarycompat-android'
 //    website = 'https://github.com/BzCoder/BlockCanaryCompat'
 //}
-
+//
