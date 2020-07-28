@@ -1,7 +1,7 @@
 # BlockCanaryCompat
 [ ![Download](https://api.bintray.com/packages/bzcoder/BlockCanaryCompat/blockcanarycompat-android/images/download.svg?version=0.0.4) ](https://bintray.com/bzcoder/BlockCanaryCompat/blockcanarycompat-android/0.0.4/link)
 
-修改自[BlockCanary](https://github.com/markzhai/AndroidPerformanceMonitor)，适配Android 8.0以上版本。
+修改自[BlockCanary](https://github.com/markzhai/AndroidPerformanceMonitor)，适配Android 8.0以上版本。建议阅读源码后，根据生产实际需求修改后使用。
 
 引入：
 ```
